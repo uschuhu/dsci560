@@ -16,10 +16,6 @@ def extract_csv(file_path):
 
 def extract_pdf(soup, output_dir):
     import re
-    import json
-    import os
-    import requests
-    import pytesseract
     from PIL import Image
     from io import BytesIO
 
@@ -50,14 +46,11 @@ def extract_pdf(soup, output_dir):
     
     from PIL import ImageEnhance, ImageOps
     def preprocess_for_ocr(pil_img):
-        # Convert to grayscale
         img = ImageOps.grayscale(pil_img)
 
-        # Increase contrast
         enhancer = ImageEnhance.Contrast(img)
         img = enhancer.enhance(2.0)
 
-        # Optional: increase sharpness
         sharp = ImageEnhance.Sharpness(img)
         img = sharp.enhance(2.0)
 

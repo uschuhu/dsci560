@@ -138,10 +138,11 @@ def main():
     product_name = csv_data['product_name'].iloc[0]
     web_data, soup = extract_html(link, product_name)
     pdf_data = extract_pdf(soup, "../data/pdf_output")
-    print(f"pdf print: \n{pdf_data}")
 
     for df in [csv_data, web_data]:
         print(df.head())
+
+    print(f"Extracted PDF Text: {pdf_data}")
 
 if __name__ == "__main__":
     main()
